@@ -18,8 +18,8 @@ provides the hosted CUDA environment, so you do not need a local NVIDIA setup.
 
 | Lesson | Topics | Launch |
 |---|---|---|
-| **[1 · Processing webcam frames with OpenCV on GPU](1_processing_webcam_frames_with_opencv_on_gpu.py)** | Browser webcam capture, RGB arrays, mirroring, grayscale, Canny edges, JPEG vs. PNG | [![Open lesson 1 in molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/ktaletsk/NCCV/blob/master/1_processing_webcam_frames_with_opencv_on_gpu.py/server) |
-| **[2 · Writing CUDA kernels for convolution and pooling](2_cuda_kernels_and_convolution.py)** | 2D launch grids, luminance, convolution matrices, max pooling, CPU vs. NVIDIA CUDA | [![Open lesson 2 in molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/ktaletsk/NCCV/blob/master/2_cuda_kernels_and_convolution.py/server) |
+| **[1 · Processing webcam frames with OpenCV on GPU](1_processing_webcam_frames_with_opencv_on_gpu.py)** | Browser webcam capture, RGB arrays, mirroring, grayscale, Canny edges, JPEG vs. PNG | [![Open lesson 1 in molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/ktaletsk/NCCV/blob/main/1_processing_webcam_frames_with_opencv_on_gpu.py/server) |
+| **[2 · Writing CUDA kernels for convolution and pooling](2_cuda_kernels_and_convolution.py)** | 2D launch grids, luminance, convolution matrices, max pooling, CPU vs. NVIDIA CUDA | [![Open lesson 2 in molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/ktaletsk/NCCV/blob/main/2_cuda_kernels_and_convolution.py/server) |
 
 ## Learn what the frameworks automate
 
