@@ -74,7 +74,7 @@ flowchart TB
 ```
 
 The GPU implementation uses NVIDIA's
-[`numba-cuda`](https://nvidia.github.io/numba-cuda/) package with CUDA 12. This
+[`numba-cuda`](https://nvidia.github.io/numba-cuda/) package with CUDA 13. This
 project targets NVIDIA CUDA only.
 
 ## Run locally

@@ -2,7 +2,7 @@
 # requires-python = ">=3.11"
 # dependencies = [
 #     "marimo==0.23.13",
-#     "numba-cuda[cu12]==0.30.4; sys_platform == 'linux' and platform_machine == 'x86_64'",
+#     "numba-cuda[cu13]==0.30.4; sys_platform == 'linux'",
 #     "numpy>=2.2,<2.4",
 #     "opencv-python-headless==4.13.0.92",
 #     "pillow>=11,<13",
@@ -25,6 +25,9 @@ with app.setup(hide_code=True):
     from wigglystuff import WebcamCapture
 
     try:
+        # Activate numba-cuda's import hook explicitly in notebook kernels.
+        import _numba_cuda_redirector
+
         from numba import cuda
     except (ImportError, ModuleNotFoundError):
         cuda = None
@@ -41,7 +44,7 @@ def _():
     with three edge-detection kernels, and max-pool the results.
 
     This is the NVIDIA path: the notebook uses the maintained `numba-cuda`
-    package and CUDA 12. It intentionally does not target AMD GPUs. The CPU
+    package and CUDA 13. It intentionally does not target AMD GPUs. The CPU
     reference below still runs without CUDA so that every step remains
     inspectable; open the notebook in molab and attach an NVIDIA GPU to execute
     the CUDA cells.
