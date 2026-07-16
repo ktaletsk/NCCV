@@ -42,11 +42,12 @@ def _():
     thread own one pixel. We will convert RGB to luminance, convolve the image
     with three edge-detection kernels, and max-pool the results.
 
-    This is the NVIDIA path: the notebook uses the `numba-cuda-mlir` compiler
-    and CUDA 13.0. It intentionally does not target AMD GPUs. The CPU
-    reference below still runs without CUDA so that every step remains
-    inspectable; open the notebook in molab and attach an NVIDIA GPU to execute
-    the CUDA cells.
+    Notice that we are not writing C++ CUDA here, but rather using the `numba-cuda-mlir` 
+    compiler.
+
+    In this exercise, we will first implement different kernels in OpenCV/NumPy to 
+    run on the CPU. And after that, we will use Numba to write raw CUDA kernels and run them 
+    using Numba JIT compiler.
     """)
     return
 
