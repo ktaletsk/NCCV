@@ -74,8 +74,8 @@ flowchart TB
 ```
 
 The GPU implementation uses NVIDIA's
-[`numba-cuda`](https://nvidia.github.io/numba-cuda/) package with CUDA 13. This
-project targets NVIDIA CUDA only.
+[`numba-cuda-mlir`](https://github.com/NVIDIA/numba-cuda-mlir) compiler with
+CUDA 13.0. This project targets NVIDIA CUDA only.
 
 ## Run locally
 
@@ -94,7 +94,7 @@ dependencies on first run.
 - [marimo](https://marimo.io) for reactive notebooks and apps
 - [wigglystuff](https://github.com/koaning/wigglystuff) for browser webcam capture
 - [OpenCV](https://opencv.org) and NumPy for image processing and CPU references
-- [Numba-CUDA](https://nvidia.github.io/numba-cuda/) for NVIDIA GPU kernels
+- [Numba-CUDA-MLIR](https://github.com/NVIDIA/numba-cuda-mlir) for NVIDIA GPU kernels
 - [uv](https://docs.astral.sh/uv/) for isolated notebook environments
 
 ## Roadmap
