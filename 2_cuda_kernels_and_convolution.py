@@ -1,8 +1,10 @@
 # /// script
 # requires-python = ">=3.11"
 # dependencies = [
+#     "cuda-toolkit[cccl,cudart,nvcc,nvrtc]==13.0.*; sys_platform == 'linux'",
 #     "marimo==0.23.13",
-#     "numba-cuda[cu13]==0.30.4; sys_platform == 'linux'",
+#     "numba-cuda-mlir[cu13]==0.4.1; sys_platform == 'linux'",
+#     "nvidia-nvjitlink==13.0.*; sys_platform == 'linux'",
 #     "numpy>=2.2,<2.4",
 #     "opencv-python-headless==4.13.0.92",
 #     "pillow>=11,<13",
@@ -25,10 +27,7 @@ with app.setup(hide_code=True):
     from wigglystuff import WebcamCapture
 
     try:
-        # Activate numba-cuda's import hook explicitly in notebook kernels.
-        import _numba_cuda_redirector
-
-        from numba import cuda
+        from numba_cuda_mlir import cuda
     except (ImportError, ModuleNotFoundError):
         cuda = None
 
@@ -43,8 +42,8 @@ def _():
     thread own one pixel. We will convert RGB to luminance, convolve the image
     with three edge-detection kernels, and max-pool the results.
 
-    This is the NVIDIA path: the notebook uses the maintained `numba-cuda`
-    package and CUDA 13. It intentionally does not target AMD GPUs. The CPU
+    This is the NVIDIA path: the notebook uses the `numba-cuda-mlir` compiler
+    and CUDA 13.0. It intentionally does not target AMD GPUs. The CPU
     reference below still runs without CUDA so that every step remains
     inspectable; open the notebook in molab and attach an NVIDIA GPU to execute
     the CUDA cells.
@@ -55,7 +54,7 @@ def _():
 @app.cell
 def _():
     cuda_available = False
-    cuda_detail = "numba-cuda is not installed in this environment"
+    cuda_detail = "numba-cuda-mlir is not installed in this environment"
     if cuda is not None:
         try:
             cuda_available = cuda.is_available()
@@ -65,7 +64,9 @@ def _():
                     device_name = device_name.decode()
                 cuda_detail = str(device_name)
             else:
-                cuda_detail = "numba-cuda is installed, but no CUDA device is attached"
+                cuda_detail = (
+                    "numba-cuda-mlir is installed, but no CUDA device is attached"
+                )
         except Exception as exc:
             cuda_detail = f"CUDA initialization failed: {exc}"
 
